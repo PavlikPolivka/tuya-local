@@ -1,0 +1,121 @@
+name: Vacuum and mop
+products:
+  - id: zvyeu8rf9cpy5to4
+    manufacturer: ETA
+    model: Rover 1248, Torro 0251
+entities:
+  - entity: vacuum
+    dps:
+      - id: 2
+        type: boolean
+        name: activate
+      - id: 3
+        type: string
+        name: command
+        mapping:
+          - dps_val: standby
+            value: stop
+          - dps_val: random
+            value: start
+          - dps_val: spiral
+            value: clean_spot
+          - dps_val: wall_follow
+            value: wall_follow
+          - dps_val: partial_bow
+            value: partial_bow
+          - dps_val: chargego
+            value: return_to_base
+      - id: 4
+        type: string
+        name: direction_control
+        optional: true
+        mapping:
+          - dps_val: forward
+            value: forward
+          - dps_val: backward
+            value: reverse
+          - dps_val: turn_left
+            value: left
+          - dps_val: turn_right
+            value: right
+          - dps_val: stop
+            value: stop
+      - id: 5
+        type: string
+        name: status
+        mapping:
+          - dps_val: standby
+            value: standby
+          - dps_val: smart_clean
+            value: cleaning
+          - dps_val: wall_clean
+            value: cleaning
+          - dps_val: spot_clean
+            value: cleaning
+          - dps_val: cleaning
+            value: cleaning
+          - dps_val: goto_charge
+            value: returning
+          - dps_val: charging
+            value: charging
+          - dps_val: charge_done
+            value: charged
+          - dps_val: sleep
+            value: sleep
+      - id: 14
+        type: string
+        name: fan_speed
+        mapping:
+          - dps_val: gentle
+            value: Low
+          - dps_val: normal
+            value: Medium
+          - dps_val: strong
+            value: High
+  - entity: sensor
+    class: battery
+    dps:
+      - id: 6
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: sensor
+    name: Cleaning time
+    category: diagnostic
+    class: duration
+    icon: "mdi:clock-outline"
+    dps:
+      - id: 17
+        type: integer
+        name: sensor
+        unit: min
+  - entity: binary_sensor
+    class: problem
+    category: diagnostic
+    dps:
+      - id: 18
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 0
+            value: false
+          - value: true
+      - id: 18
+        type: bitfield
+        name: fault_code
+  - entity: select
+    translation_key: mopping
+    category: config
+    icon: "mdi:cup-water"
+    dps:
+      - id: 20
+        name: option
+        type: string
+        mapping:
+          - dps_val: closed
+            value: "off"
+          - dps_val: low
+            value: low
+          - dps_val: high
+            value: high

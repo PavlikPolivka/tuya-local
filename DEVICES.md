@@ -1110,6 +1110,7 @@ of device.
 - Airrobo P20 vacuum cleaner
 - Blaupunkt XBoost vacuum cleaner
 - Cecotec Conga 1970, X70, Z100 vacuum cleaners
+- ETA Rover 1248, Torro 0251 vacuum cleaners with mop
 - Gadnic AC800 mopping vacuum cleaner
 - Horniture G20, Q6 Pro vacuum cleaners
 - iHome Autoac Nova vacuum cleaner
